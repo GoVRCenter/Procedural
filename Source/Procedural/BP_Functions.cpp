@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Engine/Texture2D.h"
-#include "Math.h"
 #include "BP_Functions.h"
+#include "Math.h"
+#include "Engine/Texture2D.h"
 
 //void UBP_Functions::TextureGenerator(int32 inSizeX, int32 inSizeY)
 UTexture2D*  UBP_Functions::NewTexture2D(int32 inSizeX, int32 inSizeY, EPixelFormat InFormat)
