@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Engine/Texture2D.h"
 #include "BP_Functions.generated.h"
 
 /**
@@ -16,4 +17,5 @@ class PROCEDURAL_API UBP_Functions : public UBlueprintFunctionLibrary
 
 		UFUNCTION(BlueprintCallable, Category="Justin")
 		static UTexture2D* NewTexture2D(int32 inSizeX, int32 inSizeY, EPixelFormat InFormat = PF_B8G8R8A8);
+
 };

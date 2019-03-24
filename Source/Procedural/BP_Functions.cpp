@@ -1,20 +1,22 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BP_Functions.h"
-#include "Math.h"
 #include "Engine/Texture2D.h"
+#include "Math.h"
+
 
 //void UBP_Functions::TextureGenerator(int32 inSizeX, int32 inSizeY)
-UTexture2D*  UBP_Functions::NewTexture2D(int32 inSizeX, int32 inSizeY, EPixelFormat InFormat)
+UTexture2D*  UBP_Functions::NewTexture2D(int32 inSizeX, int32 inSizeY, EPixelFormat inFormat)
 {
-	UTexture2D* t = UTexture2D::CreateTransient(inSizeX, inSizeY, InFormat);
+	UTexture2D* t = UTexture2D::CreateTransient(inSizeX, inSizeY, inFormat);
 	FTexture2DMipMap& Mip =  t->PlatformData->Mips[0];
 	void* Data = Mip.BulkData.Lock(LOCK_READ_WRITE);
 
 	//Image generation done here pixel by pixel:
 	TArray<FColor> colors;
-	for (int64 i = 0; i < t->PlatformData->SizeX * t->PlatformData->SizeY; i++) {
-		if (i % 8) { colors.Add(FColor::Emerald); }
+	int64 pixelStream= t->PlatformData->SizeX * t->PlatformData->SizeY;
+	for (int64 i = 0; i < pixelStream; i++) {
+		if (i % 16) { colors.Add(FColor::Emerald); }
 		else colors.Add(FColor::White);
 	}
 
